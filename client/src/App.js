@@ -8,6 +8,7 @@ import Signout from "./components/user/Signout";
 import CreateProfile from "./components/profile/createProfile";
 import GetProfile from "./components/profile/getProfile";
 import UpdateProfile from "./components/profile/updateProfile";
+import DeleteProfile from "./components/profile/deleteProfile";
 
 function App() {
 	return (
@@ -25,17 +26,20 @@ function App() {
 							<Link to="/signout">Sign Out</Link>
 						</li>
 
-            <li>
+						<li>
 							<Link to="/create-profile">Create Profile</Link>
 						</li>
-            <li>
+						<li>
 							<Link to="/get/:id">Get Profile</Link>
 						</li>
 
-            <li>
+						<li>
 							<Link to="/update/:id">Update Profile</Link>
 						</li>
-
+						
+						<li>
+							<Link to="/delete/:id">Delete Profile</Link>
+						</li>
 					</ul>
 				</nav>
 				<Routes>
@@ -45,11 +49,9 @@ function App() {
 					<Route path="/create-profile" element={<CreateProfile />} />
 					<Route path="/get/:id" element={<GetProfile />} />
 					<Route path="/update/:id" element={<UpdateProfile />} />
-
+					<Route path="/delete/:id" element={<DeleteProfile />} />
 				</Routes>
 			</Router>
-
-			
 		</Provider>
 	);
 }

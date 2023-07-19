@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createUserProfile } from "../../features/profile/profileSlice.js";
+import { deleteUserProfile } from "../../features/profile/profileSlice.js";
 
-const CreateProfile = () => {
+const DeleteProfile = () => {
   const dispatch = useDispatch();
   const [user_id, setUser_id] = useState("");
-  const [bio, setBio] = useState("");
-  const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createUserProfile({ user_id, bio, location }));
+    dispatch(deleteUserProfile(user_id));
   };
 
   return (
@@ -22,23 +20,10 @@ const CreateProfile = () => {
         placeholder="ID"
         required
       />
-      <input
-        type="text"
-        value={bio}
-        onChange={(e) => setBio(e.target.value)}
-        placeholder="Bio"
-        required
-      />
-      <input
-        type="text"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="Location"
-        required
-      />
-      <button type="submit">Create Prrofile</button>
+     
+      <button type="submit">Delete Prrofile</button>
     </form>
   );
 };
 
-export default CreateProfile;
+export default DeleteProfile;

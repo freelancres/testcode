@@ -24,6 +24,6 @@ export const updateProfile = async ({user_id, bio, location }) => {
 };
 
 export const deleteProfile = async (id) => {
-  const response = await axios.delete(`${API_URL}/delete${id}`);
+  const response = await axios.delete(`${API_URL}/delete/${id}`);
   return response.data;
 };
