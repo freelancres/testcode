@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
 
   // Extract the token from the header
   const token = authHeader && authHeader.split(" ")[1];
-  console.log(token);
+  // console.log(token);
   // If there's no token, return a 401 status (Unauthorized)
   if (token == null) return res.sendStatus(401);
 

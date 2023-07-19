@@ -38,7 +38,8 @@ const signup = async (req, res) => {
 
     return res.status(201).json({
         user: {
-          username
+          username,
+          id : newUser._id
       },
     });
   } catch (error) {
@@ -105,6 +106,8 @@ const signin = async (req, res) => {
          return res.status(200).json({
           message: "Congrats !!",
           token,
+          id : user._id
+
         });
       }
     );
@@ -123,7 +126,7 @@ const signin = async (req, res) => {
  */
 
 const signout = (req, res) => {
-    return res.status("200").json({ message: "User signout successfully" });
+    return res.status(200).json({ message: "User signout successfully" });
 };
 
 module.exports = { signup, signin, signout };

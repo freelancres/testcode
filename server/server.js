@@ -40,7 +40,7 @@ connectDB();
 
 // define PORT
 
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT;
 
 // run the server on PORT
 

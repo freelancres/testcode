@@ -20,7 +20,14 @@ export const signinUser = createAsyncThunk(
     return response.token;
   }
 );
-export const signoutUser = createAsyncThunk("user/signout", signout);
+export const signoutUser = createAsyncThunk(
+  "user/signout",async () => {
+    const response = await signout();
+    console.log(response.token);
+    localStorage.removeItem("token");
+    
+  }
+);
 
 const userSlice = createSlice({
   name: "user",

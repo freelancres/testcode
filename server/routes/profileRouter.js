@@ -41,7 +41,7 @@ router.post(
  * @path /api/profiles/:id
  * @description get a profile by id
  */
-router.get('/:id', auth, getProfile);
+router.get('/get/:id', auth, getProfile);
 
 
 /**
@@ -50,7 +50,7 @@ router.get('/:id', auth, getProfile);
  * @path /api/profiles/:id
  * @description Update a profile by id
  */
-router.put('/:id', auth, updateProfile);
+router.put('/update/:id', auth, updateProfile);
 
 /**
  * @private
@@ -58,6 +58,6 @@ router.put('/:id', auth, updateProfile);
  * @path /api/profiles/:id
  * @description Delete a profile by id
  */
-router.delete('/:id', auth, deleteProfile);
+router.delete('/delete/:id', auth, deleteProfile);
 
 module.exports = router;

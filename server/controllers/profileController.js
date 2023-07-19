@@ -114,14 +114,15 @@ const updateProfile = async (req, res) => {
       });
     }
 
-     profile =  await Profile.findByIdAndUpdate(id,
-      { $set: profileFields },
-      { new: true }
+     profile = await Profile.findByIdAndUpdate(id,
+      { $set: profileFields},
+      {new: true}
     );
+    profile.save()
 
     return res.status(200).json({
       message: "Profile updated",
-      profile
+      profileFields
     });
 
   } catch (error) {

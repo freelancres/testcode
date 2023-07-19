@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { signoutUser } from "../features/user/userSlice";
+import { signoutUser } from "../../features/user/userSlice";
 
 const Signout = () => {
   const dispatch = useDispatch();
