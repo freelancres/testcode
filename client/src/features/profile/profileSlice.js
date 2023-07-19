@@ -21,8 +21,8 @@ export const getUserProfile = createAsyncThunk(
   }
 );
 export const updateUserProfile = createAsyncThunk(
-    `/update:id`,async (id, profileData) => {
-    const response = await updateProfile(id, profileData);
+    `/update/:id`,async ({user_id, bio, location }) => {
+    const response = await updateProfile({user_id, bio, location });
     console.log(response);
     // localStorage.removeItem("token");
     return response;
@@ -30,7 +30,7 @@ export const updateUserProfile = createAsyncThunk(
   }
 );
 export const deleteUserProfile = createAsyncThunk(
-    `/delete:id`,async (id) => {
+    `/delete/:id`,async (id) => {
     const response = await deleteProfile(id);
     console.log(response);
     return response;
