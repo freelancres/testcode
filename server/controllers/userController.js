@@ -67,10 +67,10 @@ const signin = async (req, res) => {
     }
 
     const { username, password } = req.body;
-    console.log({ username, password });
+    // console.log({ username, password });
     // find user in mongoDB
     const user = await User.findOne({ username });
-    console.log(user);
+    // console.log(user);
     // not found user error
     if (!user) {
       return res.status(404).json({

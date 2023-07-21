@@ -6,13 +6,14 @@ const Signin = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [userId, setUserId] = useState("");
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signinUser({ username, password }));
-  };
-
+    console.log(dispatch(signinUser({ username, password })));
+    // dispatch(signinUser({ username, password }));
+  }
   return (
     <form onSubmit={handleSubmit}>
       <input

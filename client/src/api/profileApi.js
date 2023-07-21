@@ -8,7 +8,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
 
 export const createProfile = async (profileData) => {
   const response = await axios.post(`${API_URL}/create-profile`, profileData);
-  console.log(profileData);
+  // console.log("response from api", response.data.profile._id);
   return response.data;
 };
 

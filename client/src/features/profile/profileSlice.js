@@ -6,13 +6,13 @@ export const createUserProfile = createAsyncThunk(
   "/create-profile",
   async (profileData) => {
     const response = await createProfile(profileData);
-    console.log(response.user);
-    return response.user;
+    // console.log(response.user);
+    return response;
   }
 );
 //export const signinUser = createAsyncThunk("user/signin", signin);
 export const getUserProfile = createAsyncThunk(
-    `/get:id`,
+    `/get/:id`,
   async (id) => {
     const response = await getProfile(id);
     console.log(response);
@@ -39,13 +39,14 @@ export const deleteUserProfile = createAsyncThunk(
 
 const profileSlice = createSlice({
   name: "profile",
-  initialState: { profile: null, token: "", status: "idle", error: null},
+  initialState: { profile: null ,id: null ,token: "", status: "idle", error: null},
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        // state.profile = action.payload.profile;
+        state.id = action.payload.profile._id;
       })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";

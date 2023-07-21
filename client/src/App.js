@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import store from "./app/store";
 import Signup from "./components/user/Signup";
 import Signin from "./components/user/Signin";
 import Signout from "./components/user/Signout";

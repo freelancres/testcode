@@ -15,9 +15,10 @@ export const signinUser = createAsyncThunk(
   "user/signin",
   async ({ username, password }) => {
     const response = await signin(username, password);
-    console.log(response.token);
+    // console.log(response);
     localStorage.setItem("token", response.token);
-    return response.token;
+    // console.log(response.id);
+    return response;
   }
 );
 export const signoutUser = createAsyncThunk(
@@ -31,7 +32,7 @@ export const signoutUser = createAsyncThunk(
 
 const userSlice = createSlice({
   name: "user",
-  initialState: { user: null, token: "", status: "idle", error: null},
+  initialState: { user: null, id: null, token: "", status: "idle", error: null},
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -41,11 +42,12 @@ const userSlice = createSlice({
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.token = action.payload;
+        state.token = action.payload.token;
+        state.id = action.payload.id
       })
       .addCase(signoutUser.fulfilled, (state) => {
         state.status = "succeeded";
-        state.token = null;
+        state.token = "null";
       });
     
   },

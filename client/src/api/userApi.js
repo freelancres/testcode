@@ -15,6 +15,7 @@ export const signin = async (username, password) => {
     username,
     password,
   });
+  // console.log(response.data);
   return response.data;
 };
 
