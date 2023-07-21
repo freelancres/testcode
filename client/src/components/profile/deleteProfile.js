@@ -1,25 +1,18 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteUserProfile } from "../../features/profile/profileSlice.js";
 
 const DeleteProfile = () => {
   const dispatch = useDispatch();
-  const [user_id, setUser_id] = useState("");
+  const profile_id = useSelector((state) => state.user.profileId);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(deleteUserProfile(user_id));
+    dispatch(deleteUserProfile(profile_id));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={user_id}
-        onChange={(e) => setUser_id(e.target.value)}
-        placeholder="ID"
-        required
-      />
+      
      
       <button type="submit">Delete Prrofile</button>
     </form>

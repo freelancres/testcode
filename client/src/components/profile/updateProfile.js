@@ -1,27 +1,21 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUserProfile } from "../../features/profile/profileSlice.js";
 
 const UpdateProfile = () => {
   const dispatch = useDispatch();
-  const [user_id, setUser_id] = useState("");
+  const profileId = useSelector((state) => state.user.profileId);
   const [bio, setBio] = useState("");
   const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUserProfile({user_id, bio, location }));
+    dispatch(updateUserProfile({profileId, bio, location }));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={user_id}
-        onChange={(e) => setUser_id(e.target.value)}
-        placeholder="ID"
-        required
-      />
+      
       <input
         type="text"
         value={bio}

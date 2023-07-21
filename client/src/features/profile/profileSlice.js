@@ -21,8 +21,8 @@ export const getUserProfile = createAsyncThunk(
   }
 );
 export const updateUserProfile = createAsyncThunk(
-    `/update/:id`,async ({user_id, bio, location }) => {
-    const response = await updateProfile({user_id, bio, location });
+    `/update/:id`,async ({profileId, bio, location }) => {
+    const response = await updateProfile({profileId, bio, location });
     console.log(response);
     // localStorage.removeItem("token");
     return response;
@@ -30,8 +30,8 @@ export const updateUserProfile = createAsyncThunk(
   }
 );
 export const deleteUserProfile = createAsyncThunk(
-    `/delete/:id`,async (id) => {
-    const response = await deleteProfile(id);
+    `/delete/:id`,async (prodileId) => {
+    const response = await deleteProfile(prodileId);
     console.log(response);
     return response;
   }
@@ -50,7 +50,7 @@ const profileSlice = createSlice({
       })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.profile = action.payload;
+        state.profile = action.payload.profile;
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";

@@ -1,6 +1,8 @@
 const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const Profile = require("../models/Profile.js");
+
 require("dotenv").config();
 
 // import the User model:
@@ -96,6 +98,11 @@ const signin = async (req, res) => {
       },
     };
 
+    
+    // Check if the profile already exists for this user
+    const existedProfile = await Profile.findOne({ user: payload.user.id });
+   
+
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
@@ -106,7 +113,8 @@ const signin = async (req, res) => {
          return res.status(200).json({
           message: "Congrats !!",
           token,
-          id : user._id
+          id : user._id,
+          profileId : (existedProfile ? existedProfile._id : null)
 
         });
       }

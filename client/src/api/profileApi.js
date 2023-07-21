@@ -17,13 +17,13 @@ export const getProfile = async (id) => {
   return response.data;
 };
 
-export const updateProfile = async ({user_id, bio, location }) => {
-  const test = { bio, location }
-  const response = await axios.put(`${API_URL}/update/${user_id}`, test);
+export const updateProfile = async ({profileId, bio, location }) => {
+  // const test = { bio, location }
+  const response = await axios.put(`${API_URL}/update/${profileId}`, { bio, location });
   return response.data;
 };
 
-export const deleteProfile = async (id) => {
-  const response = await axios.delete(`${API_URL}/delete/${id}`);
+export const deleteProfile = async (profileId) => {
+  const response = await axios.delete(`${API_URL}/delete/${profileId}`);
   return response.data;
 };

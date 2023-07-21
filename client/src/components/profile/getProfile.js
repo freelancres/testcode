@@ -3,7 +3,7 @@ import { getUserProfile } from "../../features/profile/profileSlice.js";
 
 const GetProfile = () => {
   const dispatch = useDispatch();
-  const profile_id = useSelector((state) => state.profile.id);
+  const profile_id = useSelector((state) => state.user.profileId);
 
   // const [profile_id, setprofile_id] = useState("");
   
